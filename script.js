@@ -14,7 +14,7 @@ $(document).ready(()=>{
 const senhas = {
     "1234": "/boboca.html",
     "1206": "/first-kiss.html",
-    "2106": "/first-connection.html",
+    "1902": "/first-connection.html",
     "2508": "/theday.html",
     "0000": "first-date.html"
 }
