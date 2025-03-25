@@ -3,26 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password</title>
+    <title>Boboca</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* Estilos consistentes com a página anterior */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #FAFAFA;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        header {
+            background-color: #FF6F61;
+            padding: 30px;
+            text-align: center;
+            font-family: "Montserrat", sans-serif;
+        }
+        
+        header a{
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+        }
+        
+        header a:hover{
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            margin: 20px;
+        }
+
+        .modal-body img{
+            max-height: 400px; 
+            object-fit: cover;
+        }
+        
+        h2 {
+            color: #FF6F61;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 300;
+        }
+        
+        p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+        
+        button {
+            background-color: #FF6F61;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            font-family: "Montserrat", sans-serif;
+        }
+        
+        button:hover {
+            background-color: #FF8F81;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            background-color: #FF6F61;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+            
+            button {
+                width: 100%;
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header {
+                padding: 20px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        
+        <h1><a href="./index.html">Home</a></h1>
     </header>
     <main>
-        <h2>Achou mesmo que seria tão simples assim?</h1>
-        <p>Serei bonzinho e lhe darei um pouco de ajuda.</p>
-        <p>Uma dica: aniversário de alguém que te ama muito. HAHAAHAHAHA Boa sorte</p>
-
-        <button onclick="window.history.back()">Voltar para a página inicial</button>
+        <div class="container">
+            <h2>Achou mesmo que seria tão simples assim?</h2>
+            <p>Serei bonzinho e lhe darei um pouco de ajuda.</p>
+            <p>Uma dica: aniversário de alguém que te ama muito. HAHAAHAHAHA Boa sorte</p>
+            <button onclick="window.history.back()">Voltar para a página inicial</button>
+            <button id="btn-surprise" data-bs-toggle="modal" data-bs-target="#surpresaModal">Ver surpresa 🎁</button>
+        </div>
+        
+        <!-- Modal para mostrar surpresa -->
+        <div class="modal fade" id="surpresaModal" tabindex="-1" aria-labelledby="surpresaModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="surpresaModalLabel">Doreska</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <div class="mb-4">
+                            <img 
+                                src="./img/dorinha.jpg" 
+                                alt="A gata mais 'inteligente' do mundo" 
+                                class="img-fluid rounded shadow-lg"
+                            >
+                        </div>
+                        <small class="d-block text-muted fst-italic fs-6">
+                            Vai ter gata bobona incomodando você sim!
+                        </small>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </main>
     <footer>
-        
+        <p>© 2025 Marcos-Winicius | Todos os direitos reservados </p>
     </footer>
     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script
     src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
     crossorigin="anonymous"></script>
+    <script>
+        
+    </script>
 </body>
 </html>

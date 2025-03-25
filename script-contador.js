@@ -1,37 +1,36 @@
-// Data do evento
 const startDate = new Date('2024-08-25T00:00:00');
 
 export function updateCounter() {
-    const endDate = new Date(); // Substitua pela sua data final
-    const elapsedTime = endDate - startDate;
+    const endDate = new Date();
+    
+    // Cálculo do total de dias
+    const timeDiff = endDate - startDate;
+    const totalDays = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
 
-    // Total de segundos
-    const totalSeconds = Math.floor(elapsedTime / 1000);
-    // Total de minutos
-    const totalMinutes = Math.floor(totalSeconds / 60);
-    // Total de horas
-    const totalHours = Math.floor(totalMinutes / 60);
-    // Total de dias
-    const totalDays = Math.floor(totalHours / 24);
+    // Cálculo da diferença detalhada (anos, meses, dias)
+    let years = endDate.getUTCFullYear() - startDate.getUTCFullYear();
+    let months = endDate.getUTCMonth() - startDate.getUTCMonth();
+    let days = endDate.getUTCDate() - startDate.getUTCDate();
 
-    // Cálculo de semanas e dias
-    const weeks = Math.floor(totalDays / 7);
-    const days = totalDays % 7;
+    // Ajustar meses negativos
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
 
-    // Cálculo de anos, meses e dias restantes
-    const years = Math.floor(totalDays / 365);
-    const remainingDaysAfterYears = totalDays % 365;
-    const months = Math.floor(remainingDaysAfterYears / 30);
-    const daysInMonth = remainingDaysAfterYears % 31;
+    // Ajustar dias negativos
+    if (days < 0) {
+        months--;
+        days += new Date(endDate.getUTCFullYear(), endDate.getUTCMonth(), 0).getUTCDate();
+        if (months < 0) {
+            years--;
+            months += 12;
+        }
+    }
 
-    // Horas, minutos e segundos restantes
-    const hours = totalHours % 24;
-    const minutes = totalMinutes % 60;
-    const seconds = totalSeconds % 60;
-
-    // Atualizar o HTML usando jQuery
+    // Atualizar exibição
     $('#totalDays').text(`Total de ${totalDays} dias`);
-    $('#weeksDays').text(`${weeks} semana(s) e ${days} dia(s)`);
-    $('#monthsDaysYears').text(`${daysInMonth} dia(s) ${months} mês(es) ${years} ano(s)`);
-    // $('#hoursMinutesSeconds').text(`${hours} hr(s) ${minutes} min(s) ${seconds} s`);
+    $('#monthsDaysYears').text(
+        `${years} ano(s), ${months} mês(es) e ${days} dia(s)`
+    );
 }

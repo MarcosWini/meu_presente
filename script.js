@@ -23,7 +23,7 @@ const senhas = {
 // Redirecionar para a página referente a senha
 function verificarSenha(senha){
     if(senha in senhas){
-        window.location.href = senhas[senha]
+        window.location.href = `./${senhas[senha]}`
     }else{
         $('#label-senha-invalida').css('display', 'block')
         // console.log("Senha inválida")
