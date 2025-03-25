@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Password</title>
+</head>
+<body>
+    <header>
+        <a href="index.html">Home</a>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Quantos dias temos</h1>
+            <div id="counter">
+                <div id="totalDays" class="counter-count">Total de 0 dias</div>
+                <div id="weeksDays" class="counter-count">0 semana(s) e 0 dia(s)</div>
+                <div id="monthsDaysYears" class="counter-count">0 dia(s) 0 mês(es) 0 ano(s)</div>
+            </div>
+        </div>
+        <div class="container">
+            <h1>Let's play</h1>
+            <p>O jogo é bem simples. Você só tem que escolher número de 0001 a 9999. Esse número pode ser uma data ou só ter um significado especial.</p>
+            <h2>Insira uma senha</h2>
+            <div>
+                <form id="formJogo">
+                    <!-- Dar um jeito de limitar a quantidade de algarismos pra 4 -->
+                    <!-- Colocar uma máscara com o .mask() no input number pra limitar -->
+                    <input type="number" name="form-senha" id="form-senha">
+                    <p style="display: none; color: red;" id="label-senha-invalida">Senha inválida</p>
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        
+    </footer>
+    
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="./script.js" type="module"></script>
+</body>
+</html>

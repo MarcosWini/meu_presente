@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envelope com Carta</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">Home</a>
+    </header>
+    <div class="container">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <strong>Clique aqui para expandir.</strong>
+                        <p>Olá, meu amorzinho querido do meu coração. Embora esteja completamente atrasado, este é meu presente para você.</p>
+                        <p>
+                            As animações podem parecer um pouco bugadas, mas eu juro que me esforcei ao máximo pra tentar deixar menos defeituosa.
+                        </p>
+                        <p>
+                            Não sei bem como começar isso... Só queria dizer que você foi a melhor coisa que aconteceu em 2024! Você é a pessoa com 
+                            quem eu quero passar o resto da minha vida! <br>Feliz Natal e Feliz 4 meses de namoro boboquinha ❤
+                        </p>
+                        <p>
+                            Espero muitas coisas, mas principalmente que estejamos juntos nessa mesma data em 2025 :D e se possível no nosso cantinho.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="heart"></div>
+        </div>
+    </div>
+    <script>
+        const envelope = document.querySelector('.envelope-wrapper');
+        const letter = document.querySelector('.letter');
+        
+        // Adiciona a animação de abertura do envelope ao clicar no coração
+        envelope.addEventListener('click', () => {
+            envelope.classList.toggle('flap');
+            letter.classList.remove('expand'); // Garantir que a carta está fechada ao abrir o envelope
+        });
+        
+        // Expande a carta ao clicar nela e fecha ao clicar novamente
+        letter.addEventListener('click', (event) => {
+            event.stopPropagation(); // Evitar que o clique feche o envelope
+            envelope.classList.toggle('expand');
+        });
+    </script>
+</body>
+</html>
